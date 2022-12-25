@@ -1,0 +1,115 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\graphicspath{ {./images/} }
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}  % improve math presentation
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+%+++++++++++++++++++++++++++++++++++++++
+
+\begin{document}
+
+\title{Discrete Math Question Set 4}
+\author{Abrar Habib}
+\date{November 28, 2022}
+\maketitle
+
+\begin{enumerate}
+    \item [1.] Let P(n) be the statement that a postage of n cents can be formed using just 3-cent stamps and 5-cent
+    stamps. The parts of this exercise outline the alternative form of mathematical induction proof that P(n) is
+    true for n $\geq$ 8.
+    \begin{enumerate}
+        \item [a.] Show that the statements P(8), P(9) and P(10) are true, completing the basis step of the proof.
+        \item [] I can make 8 by adding 3+5. I can make 9 by adding 3 + 3 + 3. I can make 10 by addomg 5+5. Therefore, P(8), P(9), and P(10) are true.
+        \item [b.] What is the inductive hypothesis of the proof?
+        \item [] The inductive hypothesis of the proof is that P(n) is true for 8 $\leq$ n $\leq$ k, where k $\geq$ 10.
+        \item [c.] What do you need to prove in the inductive step?
+        \item [] We need to prove that the inductive case P(k+1) is true.
+        \item [d.] Complete the inductive step for k $\geq$ 10.
+        \item [] If k $\geq$ 10, then k+1 = (k-2) + 3 $\therefore $ k-2 = 8. By induction hypothesis, we have proven P(k-2) to be true. This represents the fact that a package of k-2 cents can be paid by using a 3-cent and 5-cent page. If we add one more 3-cent stamp, we can pay a package of k+1 cents. $\therefore$ P(k+1) is true.
+        \item [e.] Explain why these steps show that this statement is true whenever n $\geq$ 8.
+        \item [] By principle of strong induction, the statement is true for all n $\geq$ 8. Since we have proven P(8), P(9), and P(10), any n-cent postage $\geq$ 8 can be attained by adding a certain number of 3-cent packages.
+    \end{enumerate}
+    \item [2.] Find the unique solution for each of the following recurrence relations.
+    \begin{enumerate}
+        \item [a.] $a_{n+1}-1.5a_n=0, n \geq 0$
+        \item [] $a_n=1.5a_{n-1} = 1.5^2a_{n-2}$ There is a pattern here such that $a_n = 1.5^n a_0$
+        \item [b.] $4a_n - 5a_{n-1} = 0, n \geq 1$
+        \item [] $4a_n = 5a_{n-1}$
+        \item [] $a_n = \frac{5}{4}a_{n-1} = \frac{5}{4}^2a_{n-2}$ There is another pattern here such that $a_n = \frac{5}{4}^na_0$
+    \end{enumerate}
+    \newpage
+    \item [3.] Solve the following recurrence relations. (In case of complex roots, only general solution is enough.)
+    \begin{enumerate}
+        \item [1.] $2a_{n+2} - 11a_{n+1} +5a_n = 0, n \geq 0, a_0 = 2, a_1 = -8$
+        \item [] Characteristics equation: $2r^2+11r+5 = 0$
+        \item [] $2x^2-11x+5 = 0 \implies (x-5)(2x-1) = 0 \implies x = \frac{1}{2}$ and $x={5}$
+        \item [] General solution: $a_n = ax_1^n + bx_2^n$
+        \item [] We are given $a_0 = 2 = a(\frac{1}{2})^0 + b(5)^0$
+        \item [] $2 = a+b \implies a=2-b$
+        \item [] We are given $a_1 = -8 = a(\frac{1}{2})^1 + b(5)^1$
+        \item [] $-8 = \frac{1}{2}a + 5b \implies -8 = \frac{1}{2} (2-b) + 5b \implies -8 = 1-\frac{b}{2}+5b$
+        \item [] $-16 = 2-b+10b \implies -18 = 9b \implies b = -2$
+        \item [] $2=a+b \implies 2=a-2 \implies a=4$
+        \item [] Therefore the general equation for this recurrence relation is $a_n = 4(\frac{1}{2})^n-2(5)^n$
+        \item[2.] $a_{n+2} + a_n = 0, n \geq 0, a_0 = 0, a_1 = 3$
+        \item[] Characteristics equation = $r^2+1 = 0$
+        \item[] Characteristics root = $r_1 = i, r_2=-i$
+        \item[] General solution: $a_n = ax_1^n + bx_2^n$
+        \item[] $a_0 = a(i)^0+b(-i)^0$W With the given $a_0 = 0 = a+b \implies a = -b$
+        \item[] $a_1 = 3 = a(i)^1 + b(-i)^1 \implies 3 = ai -bi \implies 3 = -bi-bi \implies b = -\frac{3}{2i}$
+        \item[] Therefore, $a = \frac{3}{2i}$
+        \item[] General equation for this recurrence relation is $a_n = \frac{3}{2i}(i)^n - \frac{3}{2i}(-i)^n$     
+    \end{enumerate} 
+    \item[4.] Using mathematical induction, prove that if A1, A2, · · · , An are subsets of a universal set U, then
+    $$\overline{\bigcup_{k=1}^{n}A_k} = \bigcap_{k=1}^{n}\overline{A_k}$$
+    CAN YOU GO OVER THIS IN CLASS PLEASE? I AM HAVING TROUBLE WITH IT!!!
+    \newpage
+    \item[5.] How many different strings can be made from the letters in ORONO using some or all of the letters?
+    \item[] If we use 1 letter each we only get 1 string: ORN of which can be arranged 3 ways.
+    \item[] If we use 2 letters, we can get: OO,OR,ON,RN. We can arrange those (1+2+2+2 = 7 different ways.)
+    \item[] If we use 3 letters, we can get: OOO,OOR,OON,ORN. We can arrange those (1+3+3+6 = 13 different ways.)
+    \item[] If we use 4 letters, we can get: OOOO,OOOR,OORN. We can arrange those (4+4+4 choose 2 = 20)
+    \item[] IF we use 5 letters, we can get: OOORN. We can arrange this 5 choose 3 ways which is 20. If we add all these combinations together, we get 3+7+13+20+20=63 as our final answer.
+    \item[6.]  What is the coefficient of $x^{101}y^{99}$ in the expansion of $(2x-3y)^{200}?$
+    \item[] $(a+b)^n = \sum_{k=0}^{n} {n \choose k}a^kb^{n-k} a=2x, b=-3y, n=200, k=101$. With this we get that the coefficient will be: $${{200} \choose {101}}$$ The entire term of the expansion will be $${{200} \choose {101}} 2x^{101}-3y^{99}$$
+    \item[7.] How many arrangements of the letters in MISSISSIPPI have no consecutive S's?
+    \item[] $$\frac{{8 \choose 4}7!}{4!2!} = 7350$$
+    \item[] This is because we have 7 letters total with 8 letters remaining. We want to fill in those 8 gaps with 4 S's, which can be done in 8C4 ways. The rest of the letters can be arranged in $\frac{7!}{4!2!}$ ways.
+    \item[8.]
+    \begin{enumerate}
+        \item [a.] Fifteen points, no three of which are collinear, are given on a plane. How many lines do they determine?
+        \item [] A line can be made with onyl two points. So we only need to find how many ways two pair two points from the total of 15. This gives us $15 \choose 2$ possibilites.
+        \item [b.] Twenty-five points, no four of which are coplanar, are given in space. How many triangles do they determine?
+        How many planes? How many tetrahedra (pyramidlike solids with four triangular faces)?
+        \item [] They make $25 \choose 3$ triangles since it only takes 3 points to make a triangle. 
+        \item [] They also make $25 \choose 3$ planes becuase you also only need 3 points for a plane.
+        \item [] They make $25 \choose 4$ tetrahedra because we only need 4 points to make one. 
+    \end{enumerate}  
+    \newpage
+    \item [9.] Sixteen people are to be seated at two circular tables, one of which seats 10 while the other seats six. How
+    many different seating arrangements are possible?
+    \item[] There are $16 \choose 10$ ways to choose how many of those people will sit at the first table. 
+    \item[] Then we need to find how many ways to sit those 10 people in the first table, this is given by $9!$. Lastly, the number of ways to sit people in the last table is given by $5!$. In total we have $${16 \choose 10} 9! 6!$$
+    \item[10.] Count the solutions to inequality $x_1+x_2+x_3 \leq 11$, knowing $x_1, x_2, x_3 \geq 0$are non-negative integers. 
+    \item[]  This is a counting multisets equation (check chapter 10.9.1). $${n+m-1} \choose {m-1}$$ 
+    We have $n = 11, m = 4$ so our answer is $${{11+4-1} \choose {4-1}} = 364$$
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,175 @@
+%++++++++++++++++++++++++++++++++++++++++
+% Don't modify this section unless you know what you're doing!
+\documentclass[letterpaper,11pt]{article}
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}  % improve math presentation
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+%+++++++++++++++++++++++++++++++++++++++
+\begin{document}
+
+\title{Discrete Math Question Set 2}
+\author{Abrar Habib}
+\date{October 11, 2022}
+\maketitle
+
+
+\begin{enumerate}
+    \item[1.] Determine whether each of these functions is a bijection from $\mathbb{R}$  to $\mathbb{R}$.
+    \begin{enumerate}
+      \item[a)] $f(x) = 2x + 1$
+      \item[] To prove this function is bijective, we need to prove it is injective and surjective.
+      
+      A function is injective if f(a) = c and f(b) = c and a = b. Therefore, we get
+      
+      $c=2a+1$ \& $c = 2b +1$
+      \begin{equation}
+        \begin{aligned}
+            & 2a+1 = 2b+1 &\\
+            & 2a = 2b &\\
+            & a = b
+        \end{aligned}
+      \end{equation} 
+      Since $f(a) = f(b)$, and we proved that a = b, this function is injective. Now we must prove this function is surjunctive.
+      \begin{equation}
+        \begin{aligned}
+            & f(x) = y &\\
+            & 2x+1 = y &\\
+            & x = \frac{y-1}{2} &\\
+            & y = 2x+1 &\\
+            & y = 2(\frac{y-1}{2}) + 1 &\\
+            & y = y
+        \end{aligned}
+      \end{equation} 
+      Because $f(x) = y$, this function is surjective. From our previous comclusions, it is also injective, and therefore also Bijective.
+
+      \item[b)] $f(x) = x^2+1$ 
+      \item[] Use same logic as before.
+      \begin{equation}
+        \begin{aligned}
+            & a^2+1 = b^2+1 &\\
+            & a^2 = b^2 &\\
+            & \pm a = \pm b
+        \end{aligned}
+      \end{equation} 
+      Therefore, this function is injective.
+
+      For this function to be surjective, we need to prove f(x) = y.
+
+      \begin{equation}
+        \begin{aligned}
+            f(x) &= y &\\
+            x^2+1 &= y &\\
+            x^2 &= y-2 &\\
+            x &= \sqrt{y-2} &\\
+            f(x) &= f(\sqrt{y-2}) &\\
+            f(\sqrt{y-2}) &= {\sqrt{y-2}}^2 +1 &\\
+            f(\sqrt{y-2}) &= y-2 + 1 &\\
+            f(\sqrt{y-2}) &= y+1 &\\
+        \end{aligned}
+      \end{equation} 
+      Since $f(x)\neq y$, this function is not surjective and therefore not bijective.
+      % \newpage
+      \item[c)] $f(x) = \frac{x^2+1}{x^2+2}$
+      \item[] Use the same logic for proving injective-ness.
+      \begin{equation}
+        \begin{aligned}
+          & \frac{a^2+1}{a^2+2} = c &\\
+          & \frac{b^2+1}{b^2+2} = c &\\
+          & \frac{a^2+1}{a^2+2} = \frac{b^2+1}{b^2+2} &\\
+          & (a^2+1)(b^2+2) = (a^2+2)(b^2+1)  &\\
+          & a^2b^2+2a^2+b^2+2 = a^2b^2+a^2+2b^2+2 &\\
+          & a^2 = b^2 &\\
+          & \pm a = \pm b
+        \end{aligned}
+      \end{equation} 
+      This function is therefore not injective. For example. if we make $x = \pm 1$, we get the same output of $\frac{1}{2}$.
+      This already makes this function not bijective.
+    \end{enumerate}
+    % \newpage
+    \item [2.] Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be defined by $f(x) = \lfloor x \rfloor $, the greatest integer in $x$. Find $f^-1(B)$ for the following subset B of $\mathbb{R}$.
+    $B = [0,2)$
+    \begin{equation}
+      f^{-1}([0,2))  = \{ x \in \mathbb{R}| \floor{x} = 0 \} \cup \{ x x \in \mathbb{R} | \floor{x} = 1 \}
+    \end{equation} 
+    The floor function does not have an inverse. The floor function is also defined to take in only integers. I.E. $f(\mathbb{R}) = \mathbb{Z}$. Therefore, the 
+    only values which I can find the inverse of are 0 and 1 (2 is not included in the set B). The "inverse" of this function is any x whose floor is either 0 or 1 and therefore is what makes answer a disjoint set. No floor(x) is equal to 2 different numbers. 
+    \newpage
+    \item[3.] Does the formula $f(x) = \frac{1}{x^2-2}$ define a function $f : \mathbb{R} \to \mathbb{R}$? What about $f : \mathbb{Z} \to \mathbb{R}?$
+    \begin{enumerate}
+      \item [a)] $f : \mathbb{R} \to \mathbb{R}$
+      The function will be undefined if the denominator is equal to 0.
+      \begin{equation}
+        \begin{aligned}
+          &x^2-2 = 0 &\\
+          &x^2 = 2 &\\
+          & x = \pm \sqrt{2}   
+        \end{aligned}
+      \end{equation}
+      At $\pm \sqrt{2}$, the function is not well defined as there is a hole there.
+
+      \item [b)] $f : \mathbb{R} \to \mathbb{Z}$
+      Since the only number that makes the function undefined, $\pm \sqrt{2}$, is a real number, it is not part of the domain, which is $\mathbb{Z}$, and therefore makes the function well defined.
+    \end{enumerate}
+    \item[4.] For each of the following functions $f : \mathbb{Z} \to \mathbb{Z}$, determine whether the function is one-to-one and whether it is onto. If the function is not onto, determine the range of $f(\mathbb{Z})$.
+    \begin{enumerate}
+      \item [a)] $f(x) = -x+5$
+      To prove if this function is one to one, we can check to see if two different inputs a and b give us the same output.
+      \begin{equation}
+        \begin{aligned}
+          -a+5 &= c &\\
+          -b+5 &= c &\\
+          -a+5 &= -b+5 &\\
+          -a& = -b &\\
+          a& = b
+        \end{aligned}
+      \end{equation}
+      Since we determined that a is equal to b, this function is one-to-one.
+
+      To determine if a function is onto, we need to find its inverse (if it has one) and plug it back to the equation. It will be onto if $f(x) = y$.
+      
+      Take any $y \in \mathbb{Z}$. Also $x \in \mathbb{Z}$.
+
+      \begin{equation}
+        \begin{aligned}
+          f(x) &= y &\\
+          -x+5 &= y &\\
+          (x &=5-y) \in \mathbb{Z}&\\
+          f(5-y) &= -(5-y)+5 &\\
+          f(5-y) &= -5+y+5 &\\
+          f(5-y) &= y
+        \end{aligned}
+      \end{equation}
+      This function is onto as well and its domain is $\mathbb{R}$. We made $f(x) = y$ with $y \in \mathbb{R}$ and proved the first equality. 
+      \item [b)] $f(x) = x^2$ Once again, we can use the same principles from before.
+      \begin{equation}
+        \begin{aligned}
+          a^2 &= c &\\
+          b^2 &= c &\\
+          a^2 &= b^2 &\\
+          \pm a &= \pm b
+        \end{aligned}
+      \end{equation}
+      This function is not one-to-one because of the plus minus. We can also logically see that if $x = \pm 1$ both output 1.
+      
+      This fucntion is also not onto because it does not map $f : \mathbb{R} \to \mathbb{R}$. There is no integer such that $x^2 = -1$.
+      The domain therefore for this function is $\mathbb{Z^+}$ because the input domain was $\mathbb{Z}$ and we determined that the function has no input (within the domain) whose output is negative.
+    
+    \end{enumerate}
+  \end{enumerate}
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\graphicspath{ {./images/} }
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}  % improve math presentation
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+%+++++++++++++++++++++++++++++++++++++++
+
+\begin{document}
+
+\title{Discrete Math Question Set 4}
+\author{Abrar Habib}
+\date{November 28, 2022}
+\maketitle
+
+\begin{enumerate}
+    
+    \item Curves in Space and Their Tangents:  
+    \item[] Suppose you are given a curve in space defined by the equation $x^2 + y^2 + z^2 = 1$. Determine the equation of the tangent line to this curve at the point $(1,0,0)$.
+    
+    \item Arc Length in Space:
+    \item[] Consider the curve defined by the equation $x = t^3 - 3t, y = t^2 - 1, and z = t + 1$ for t in the interval [0,3]. Determine the length of this curve.
+    
+    \item The Chain Rule:
+    \item[] Suppose you have a function $f(x)$ defined as $f(x) = (x^2 + 1)^3$. Determine the derivative of f(x) with respect to x.
+
+    \item Directional Derivatives and Gradient Vectors:
+    \item[] Suppose you are given a function $f(x,y)$ defined as $f(x,y) = x^2 + y^2$. Determine the directional derivative of $f(x,y)$ in the direction of the vector $v = (1,1)$.
+
+    \item Tangent Planes and Differentials:
+    \item[] Suppose you are given a function $f(x,y)$ defined as $f(x,y) = x^2 + y^2$. Determine the equation of the tangent plane to the surface $z = f(x,y)$ at the point $(1,1)$.
+
+    \item Extreme Values and Saddle Points:
+    \item[] Suppose you are given a function $f(x,y)$ defined as $f(x,y) = x^2 - y^2$. Determine the local extrema and saddle points of $f(x,y)$.
+
+    \item Double and Iterated Integrals over Rectangle:
+    \item[] Consider the function $f(x,y)$ defined as $f(x,y) = x^2 + y^2$. Determine the double integral of $f(x,y)$ over the rectangle defined by $0 < x < 1, 0 < y < 2$.
+
+    \item Double Integrals over General Regions:
+    \item[] Consider the function $f(x,y)$ defined as $f(x,y) = x^2 + y^2$. Determine the double integral of $f(x,y)$ over the region defined by the circle $x^2 + y^2 = 1$.
+
+    \item Area by Double Integration:
+    \item[] Consider the region in the xy-plane bounded by the curves $y = x^2 and y = 1$. Determine the area of this region using double integration.
+
+    \item Double Integrals in Polar Form:
+    \item[] Consider the function $f(x,y)$ defined as $f(x,y) = x^2 + y^2$. Use polar coordinates to evaluate the double integral of $f(x,y)$ over the region defined by the circle $x^2 + y^2 = 1$.
+
+    \item Triple Integrals in Rectangular Coordinates:
+    \item[] Consider the function $f(x,y,z)$ defined as $f(x,y,z) = x^2 + y^2 + z^2$. Determine the triple integral of $f(x,y,z)$ over the rectangular solid defined by $0 < x < 1, 0 < y < 2$, and $0 < z < 3$.
+
+\end{enumerate}
+\end{document}
