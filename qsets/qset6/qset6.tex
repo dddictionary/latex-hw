@@ -1,0 +1,171 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\graphicspath{ {./images/} }
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}  % improve math presentation
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue         
+}
+%+++++++++++++++++++++++++++++++++++++++
+
+\begin{document}
+
+\title{Discrete Math Question Set 6}
+\author{Abrar Habib}
+\date{December 25, 2022}
+\maketitle
+
+\begin{enumerate}
+    \item Assuming n > 1, determine the values of the integer n for which the given congruence is true $28 \equiv 6$ (mod n)
+    \item [] $28=kn+6$ for some integer k. We solve for k: $22=kn \implies \frac{22}{k}=n$. If $k=1, n=22$. If $k=2, n=11$. If $k=11,n=2$. These are the only values of k that return an integer for n bigger than 1. The values of n are 2, 11, and 22.
+    \item List four elements in each of the following equivalence classes.
+    \begin{enumerate}
+        \item $\left[1\right]$ in $\mathbb{Z}_7$ 
+        \item [] x = 1 mod 7, x = 7k+1. The four elements are: 1,8,15,22.
+        \item $\left[2\right]$ in $\mathbb{Z}_11$
+        \item [] x = 2 mod 11. x = 11k+2. The four elements are 2,13,24,35.
+        \item $\left[10\right]$ in $\mathbb{Z}_17$.
+        \item [] x = 10 mod 17. x = 17k+10. The four elements are 10,27,44,61. 
+    \end{enumerate}
+    \item Determine whether or not the following set is a group under the stated binary operation. If so, determine its
+    identity and the inverse of each of its elements. If it is not a group, state the condition(s) of the definitions that
+    it violates.
+    \item[] $\left\lbrace a/2^n|a, n \in \mathbb{Z}, n \geq 0 \right\rbrace$ under addition
+    \item[] Let $a, b \in \mathbb{Z}$ and $n, m \in \mathbb{Z}$, then $\frac{a}{2^n} + \frac{b}{2^m} = \frac{a2^m + b2^n}{2^{m+n}}.$ Let $p = m+n$. Let $c = a2^m + b2^n$ Since $a,b,m,n \in \mathbb{Z}, c \in \mathbb{Z}.$ $\frac{a2^m + b2^n}{2^{m+n}} = \frac{c}{2^p}$ This is closed under addition.
+    \item[] Let $a,b,c \in \mathbb{Z}$ and $n,m,p \in \mathbb{Z}$ where $n,m,p > 0.$ 
+    \item[] $\frac{a}{2^n} + (\frac{b}{2^m} + \frac{c}{2^p}) = \frac{a2^{m+p}b2^{n+p}+c2^{m+n}}{2^{m+p+n}}$.
+    \item[] $(\frac{a}{2^n} + \frac{b}{2^m}) + \frac{c}{2^p} = \frac{a2^{m+p}b2^{n+p}+c2^{m+n}}{2^{m+p+n}}$.
+    \item[] This shows addition is associative on this set.
+    \item[] Let $e \left\{a/2^n|a, n \in \mathbb{Z}, n>0\right\}.$ $\frac{a}{2^n} + e = \frac{a}{2^n}. e = \frac{a}{2^n} - \frac{a}{2^n}. e = 0.$ Identity 0, belongs to the set.
+    \item[] $\frac{a}{2^n} + p = p + \frac{a}{2^n} = e.$ $p = -\frac{a}{2^n}$. Since $a \in \mathbb{Z}$ and has inverse $(-a) \in \mathbb{Z},$ This set has an inverse. 
+    \item[] This set is a group with identity 0 and inverse $\frac{-a}{2^n}.$
+    \newpage
+    \item Why is the set $\mathbb{Z}$ not a group under subtraction?
+    \item [] Let $x=1,y=2,z=3.$ $(x-y)-z = (1-2)-3 = -4. x-(y-z) = 1-(2-3) = 1 - (-1) = 2.$ Not a group under subtraction because it violates associative property.
+    \item Let $f : (\mathbb{Z} \times \mathbb{Z}, \oplus) \rightarrow (\mathbb{Z}, +)$ be the function defined by $f(x, y) = x - y$. [Here $(Z \times \mathbb{Z}, \oplus)$ has the binary operation $(a, b) \oplus (c, d) = (a+c, b+d)$ where $a+c$ and $b+d$ are computed using ordinary addition, and $(\mathbb{Z}, +)$ is the group of integers under ordinary addition.]
+    \begin{enumerate}
+        \item Prove that f is a homomorphism onto $\mathbb{Z}$.
+        \item [] To show that f is a homomorphism, we must show that 
+        \item[] $f((a,b)\oplus(c,d))=f((a,b))+f((c,d)).$
+        \begin{align}
+            f((a,b)\oplus(c,d)) & = f((a+c,b+d)) \\
+            & =a+c-(b+d) \\
+            & =a+c-b-d \\
+            & =a-b+c-d \\
+            & =f((a,b))+f((c,d)).    
+        \end{align}
+        f is a homomorphism. 
+        \item Determine all $(a, b) \in \mathbb{Z} \times \mathbb{Z}$ with $f(a, b) = 0$.
+        \item [] $f(a,b) = a-b = 0 \implies a = b \implies a = b.$
+        \item Find $f^{-1}(7)$.
+        \item [] We need to find (x,y) such that f(x,y) = 7. f(x,y) = x-y = 7. y = x-7.
+        \item [] $f^{-1}(7) = \left\{x, x-7 | x \in \mathbb{Z} \right\}$
+        \item If $E = \left\{2n | n \in \mathbb{Z}\right\}$, what is $f^{-1}(E)?$ 
+        \item [] $f^{-1}(E)$ is the set of all (x,y) in $\mathbb{Z} \times \mathbb{Z}.$
+        \item [] $f(x,y) = x-y = 2n. y = x-2n.$ 
+        \item [] $f^{-1}(E) = \left\{x,x-2n | x,n \in \mathbb{Z}\right\}$
+    \end{enumerate}
+    \item Determine the multiplicative inverse of the matrix
+    \begin{align}
+        \begin{bmatrix}
+            1 & 2 \\
+            3 & 7
+        \end{bmatrix}      
+    \end{align}
+    in the ring $M_2(\mathbb{Z})$ - that is, find a, b, c, d so that
+    \begin{align}
+        \begin{bmatrix}
+            1 & 2 \\
+            3 & 7
+        \end{bmatrix}
+        \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 2 \\
+            3 & 7
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix}
+    \end{align}
+    \item[] $\begin{bmatrix}
+            1 & 2 \\
+            3 & 7
+        \end{bmatrix}^{-1} = \frac{1}{1*7-3*2} \begin{bmatrix}
+            7 & -2 \\
+            -3 & 1
+        \end{bmatrix}$.
+    \item[] $a=7,b=-2,c=-3,d=1$
+    \newpage
+    \item In question 6, show that 
+    \begin{align}
+        \begin{bmatrix}
+            1 & 2 \\
+            3 & 8
+        \end{bmatrix}
+    \end{align}
+    is a unit in the ring $M_2(\mathbb{Q})$ but not a unit in $M_2(\mathbb{R})$.
+    \item[] $\begin{bmatrix}
+            1 & 2 \\
+            3 & 8
+        \end{bmatrix}^{-1} = \frac{1}{1*8-3*2} \begin{bmatrix}
+            8 & -2 \\
+            -3 & 1
+        \end{bmatrix}$.
+    \item Verify that $(Z^*_{p,} .)$ is cyclic for the primes 5, 7, 11.
+    \item[] For p = 5, $Z^*_p = Z^*_5 = {1,2,3,4}.$ We can see that $2^1$ mod $5 = 2, 2^2$ mod $5 = 4, 2^3$ mod $5 = 3, 2^4$ mod $5 = 1$
+    \item[] For p = 7, $Z^*_p = Z^*_7 = {1,2,3,4,5,6}.$ We can see that $3^1$ mod $7 = 3, 3^2$ mod $7 = 2, 3^3$ mod $7 = 6, 3^4$ mod $7 = 4$ $3^5$ mod $7 = 5, 3^6$ mod $7 = 1$.
+    \item[] For p = 11, $Z^*_p = Z^*_1 = {1,2,3,4,5,6,7,8,9,10}.$ We can see that $2^1$ mod $11 = 2, 2^2$ mod $11 = 4, 2^3$ mod $11 = 8, 2^4$ mod $11 = 5$ $2^5$ mod $11 = 10, 2^6$ mod $11 = 9, 2^7$ mod $11 = 7, 2^8$ mod $11 = 3, 2^9$ mod $11 = 6, 2^{10}$ mod $11 = 1$.
+    \item[] All of these are cyclic.
+    \item Determine whether or not the following set of numbers is a ring under ordinary addition and multiplication. $$R = {a + b\sqrt{2} + c\sqrt{3} | a \in \mathbb{Z}, b, c \in \mathbb{Q}}$$
+    \item[] Let $a = 1, b = \frac{1}{2}, a_2 = 1, b_2 = \frac{1}{3}$. Allow c to be 0.
+    \item[] $a + b\sqrt{2} + 0\sqrt{3} \cdot a_2 + b_2\sqrt{2} + 0\sqrt{3} = (1 + \frac{\sqrt2}{2}) \cdot (1 + \frac{sqrt{2}}{3}) \implies 1 + \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{3} + \frac{2}{3}.$ This result is not part of $\mathbb{Z}.$ Therefore R is not a ring.
+    \item If R is a ring with unity and a, b are units of R, prove that ab is a unit of R and that $(ab)^{-1} = b^{-1}a^{-1}$.
+    \item[] $ab \cdot (ab)^{-1} = 1 \implies ab \cdot b^{-1}a^{-1} \implies abb^{-1}a^{-1}. \implies a(bb^{-1})a^-1 \implies a(1) \cdot a^{-1} \implies a \cdot a^{-1} = 1$ ab is a unit of R.
+    \item[] Prove $(ab)^{-1} = b^{-1}a^{-1}:$ 
+    \begin{align}
+        abb^{-1}a^{-1} &= (ab)(ab)^{-1} \\
+        (ab)\cdot(b^{-1}a^{-1}) &= (ab)(ab)^{-1} \\
+        (b^{-1}a^{-1}) &= (ab)^{-1}
+    \end{align}
+    \item Prove that a unit in a ring R cannot be a proper divisor of zero.
+    \item[] Let $x \in \mathbb{R}.$ There exists a $y \in \mathbb{R}$ such that $x \cdot y = y \cdot x = 1.$ Suppose $x \cdot w = z$ for some $w \in \mathbb{R}.$ Where $z$ is the addition identity. $y \cdot (x \cdot w) = y \cdot z = z.$ $(y \cdot x) \cdot w = 1 \cdot w = w.$ 
+    \newpage
+    \item For $a, b\in \mathbb{Z}+$ and $s, t \in \mathbb{Z}$ what can we say about gcd(a,b) if $as + bt = 4$?
+    \item[] gcd(a,b) will either be 1, 2, or 4 since those are the divisor of 4. 
+    \item Use the Euclidean algorithm to express gcd(26, 91) as a linear combination of 26 and 91.
+    \item[] $26 = 3 \cdot 91 + 26 \implies 91 = 3 \cdot 26 + 13 \implies 26 = 2 \cdot 13 + 0 \implies gcd(26,91) = 13.$
+    \item Are these statements true or false? Explain the reason briefly.
+    \begin{enumerate}
+        \item The sum of any three consecutive integers is divisible by 3.
+        \item[] True. Three consecutive integers $x, x+1, x+2$ add up to $(3x + 3)$ which if you factor into $3(x+1)$ is divisible by 3. 
+        \item The product of any two even integers is a multiple of 4.
+        \item[] Let $x$ and $y$ be even integers. $xy = 2x \cdot 2y = 4(x+y).$ Therefore the product of any two even integers is a multiple of 4.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
