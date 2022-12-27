@@ -1,7 +1,2 @@
-*.aux
-*.fdb
-*.fls
-*.log
-*.out
-*.synctex.gz
-
+# ignore any files besides .pdf and .tex
+find . -type f ! -name '*.pdf' ! -name '*.tex' -delete
