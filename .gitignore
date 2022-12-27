@@ -1,2 +1,7 @@
-# ignore any files besides .pdf and .tex
-find . -type f ! -name '*.pdf' ! -name '*.tex' -delete
+# ignore any files besides .pdf and .tex in qsets folder
+qsets/**/*.aux
+qsets/**/*.fdb_latexmk
+qsets/**/*.fls
+qsets/**/*.log
+qsets/**/*.out
+qsets/**/*.synctex.gz
